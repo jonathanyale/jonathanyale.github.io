@@ -169,6 +169,7 @@ code {
    border-radius: 3px;
    border: 1px;
    margin: 1px;
+   font-size: var(--text-sm);
 }
 
 .highlight {
