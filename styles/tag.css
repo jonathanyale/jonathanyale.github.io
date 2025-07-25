@@ -1,0 +1,100 @@
+.tag-back {
+   margin-bottom: var(--space-6);
+}
+
+.back-link {
+   font-family: var(--font-body);
+   font-size: 0.9rem;
+   color: var(--text-faint);
+   background: transparent;
+   border: 1px solid var(--color-border);
+   padding: var(--space-1) var(--space-2);
+   display: inline-flex;
+   align-items: center;
+   gap: var(--space-1);
+   font-weight: normal;
+   letter-spacing: 0.05em;
+   text-transform: uppercase;
+}
+
+.tags-cloud {
+   padding: var(--space-6);
+   max-width: 1000px;
+   margin: 0 auto;
+   line-height: 2;
+   min-height: calc(100vh - 280px);
+   display: flex;
+   flex-wrap: wrap;
+   align-content: center;
+   justify-content: center;
+}
+
+.tag-item {
+   display: inline-block;
+   margin: var(--space-1) var(--space-2);
+   position: relative;
+}
+
+.tag-link {
+   color: var(--color-text);
+   text-decoration: none;
+   font-family: var(--font-heading);
+   font-weight: 300;
+   transition: color 0.2s ease;
+   position: relative;
+}
+
+.tag-link:hover {
+   color: var(--color-accent);
+}
+
+.tag-link:hover::after {
+   content: "";
+   position: absolute;
+   bottom: -2px;
+   left: 0;
+   right: 0;
+   height: 1px;
+   background: var(--color-accent);
+   opacity: 0.3;
+}
+
+.tag-count-1 {
+   font-size: 1.1rem;
+}
+
+.tag-count-2 {
+   font-size: 1.2rem;
+}
+
+.tag-count-3 {
+   font-size: 1.3rem;
+}
+
+.tag-count-4 {
+   font-size: 1.4rem;
+}
+
+.tag-count-5 {
+   font-size: 1.5rem;
+}
+
+.tag-count-6 {
+   font-size: 1.6rem;
+}
+
+.tag-count-7 {
+   font-size: 1.7rem;
+}
+
+.tag-count-8 {
+   font-size: 1.8rem;
+}
+
+.tag-count-9 {
+   font-size: 1.9rem;
+}
+
+.tag-count-10-plus {
+   font-size: 2rem;
+}

@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>stoa</title>
+      <link rel="stylesheet" href="../styles/reset.css" />
+      <link rel="stylesheet" href="../styles/base.css" />
+      <link rel="stylesheet" href="../styles/home.css" />
+      <link rel="stylesheet" href="../styles/tag.css" />
+   </head>
+   <body>
+      <div class="pattern-container">
+         <canvas id="ridgelineCanvas"></canvas>
+      </div>
+      <script>
+         document.addEventListener("DOMContentLoaded", function () {
+            const canvas = document.getElementById("ridgelineCanvas");
+            const ctx = canvas.getContext("2d");
+
+            function resizeCanvas() {
+               canvas.width = window.innerWidth;
+               canvas.height = window.innerHeight;
+               drawRidgelines();
+            }
+
+            function drawRidgelines() {
+               ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+               const ridgeCount = 144;
+               const spacing = canvas.height / (ridgeCount + 1);
+
+               for (let i = 0; i < ridgeCount; i++) {
+                  const y = spacing * (i + 1);
+                  const opacity = 0.2 + (i / ridgeCount) * 0.3;
+
+                  ctx.globalAlpha = opacity;
+                  ctx.strokeStyle = "#ffffff";
+                  ctx.lineWidth = 1;
+                  ctx.beginPath();
+
+                  for (let x = 0; x <= canvas.width; x += 2) {
+                     let waveY = y;
+
+                     waveY += 25 * Math.sin(x * 0.004 + i * 0.5);
+                     waveY += 18 * Math.sin(x * 0.009 + i * 0.8);
+                     waveY += 12 * Math.sin(x * 0.021 + i * 1.3);
+                     waveY += 8 * Math.sin(x * 0.043 + i * 2.1);
+                     waveY += 5 * Math.sin(x * 0.089 + i * 3.2);
+                     waveY += 3 * Math.sin(x * 0.167 + i * 4.7);
+
+                     if (x === 0) {
+                        ctx.moveTo(x, waveY);
+                     } else {
+                        ctx.lineTo(x, waveY);
+                     }
+                  }
+                  ctx.stroke();
+               }
+            }
+
+            window.addEventListener("resize", resizeCanvas);
+            resizeCanvas();
+         });
+      </script>
+      <div>
+         <aside class="sidebar">
+            <div><h2 class="profile-name">jonathan yalelog</h2></div>
+            <div class="sidebar-social">
+               <a
+                  href="https://github.com/jonathanyale"
+                  class="social-link"
+                  target="_blank"
+                  >github</a
+               >
+               <a
+                  href="https://www.youtube.com/@deepBoredom"
+                  class="social-link"
+                  target="_blank"
+                  >youtube</a
+               >
+               <a href="mailto:jonathanyale@pm.me" class="social-link"
+                  >email</a
+               >
+            </div>
+            <nav class="sidebar-nav">
+               <ul class="nav-list">
+                  <li>
+                     <a href="../index.html" class="nav-link"
+                        ><span class="nav-text">Home</span></a
+                     >
+                  </li>
+                  <li>
+                     <a href="../tag.html" class="nav-link active"
+                        ><span class="nav-text">Tags</span></a
+                     >
+                  </li>
+               </ul>
+            </nav>
+         </aside>
+         <div class="main-content">
+            <main class="content-main">
+               <section>
+                  <div class="tag-back">
+                     <a href="../tag.html" class="back-link">← All Tags</a>
+                  </div>
+                  <header class="posts-header">
+                     <h1>stoa</h1>
+                     <p>1 posts in this tag</p>
+                  </header>
+                  <div>
+                     <article class="blog-card">
+                        <h3>
+                           <a
+                              href="../pages/2025/starting_point.html"
+                              class="card-title"
+                              >starting point of this blogsite, and the story
+                              behind stoa</a
+                           >
+                        </h3>
+                        <div class="card-preview">
+                           <p>
+                              <br />
+                              this blogpost is a companion of
+                              <a href="youtube.com" target="_blank"
+                                 >my video on stoa</a
+                              >
+                              <br />
+                           </p>
+                           <h1>the necessity to start</h1>
+                           <p>
+                              5 years ago, i was obsessed with a service where
+                              2 matched users would listen to music & chat
+                              together. there's a lady having similar music
+                              preference with me. we spent hours talking about
+                              music, life, world... in the end, i questioned
+                              her "so what's the meaning of life". her answer
+                              was: <scan class="highlight">to create</scan>.
+                              <br />
+                           </p>
+                           <div class="sidenote annotation">
+                              back then, my interpretation is
+                              <scan class="highlight">to brood</scan>. i was a
+                              metaphysical teenager.
+                           </div>
+                           <p>
+                              the fact is that, i've been indulging in
+                              depression & corruption these 5 years, absolutely
+                              wasting my time & doing nothing. <br />
+                              i have serious bipolar disorder and i've been
+                              medicated for 3 years. i try to take the minimum
+                              dose of quetiapine but still, my thinking ability
+                              and intelligence have been hugely affected.
+                              <br />
+                              and three years ago, i started to abuse llms.
+                              llms make me think less, write less, lazier and
+                              lazier, dumber and dumber. i've lost my
+                              creativity. <br />
+                              well. i must make a change. i must start to work
+                              more, write more, create more. i must abandon
+                              brooding and llms. and the situation is that, i
+                              don't know what to do. i know a little about
+                              computer-science & data-science but that's all.
+                              <br />
+                              this will be a long journey. but at least, i need
+                              to record it from the very beginning. <br />
+                           </p>
+                           <h1>what do i need to start</h1>
+                           <p>so, let's clear our mind one more time.</p>
+                           <div class="list-1">i want to create something</div>
+                        </div>
+                        <div class="card-meta">
+                           <span class="card-date">2025-07-25</span>
+                           <div class="card-tags">
+                              <span class="tag">stoa</span>
+                              <span class="tag">nim</span>
+                           </div>
+                        </div>
+                     </article>
+                  </div>
+               </section>
+            </main>
+         </div>
+      </div>
+   </body>
+</html>

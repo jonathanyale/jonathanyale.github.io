@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="../../styles/reset.css" />
+      <link rel="stylesheet" href="../../styles/base.css" />
+      <link rel="stylesheet" href="../../styles/blog.css" />
+      <title>starting point of this blogsite, and the story behind stoa</title>
+      <meta name="tags" content="stoa, nim" />
+      <meta name="published" content="july 27, sun" />
+      <meta name="created" content="july 15, 2025" />
+      <meta name="updated" content="july 27, sun" />
+   </head>
+   <body>
+      <div class="pattern-container">
+         <canvas id="ridgelineCanvas"></canvas>
+      </div>
+      <script>
+         document.addEventListener("DOMContentLoaded", function () {
+            const canvas = document.getElementById("ridgelineCanvas");
+            const ctx = canvas.getContext("2d");
+
+            function resizeCanvas() {
+               canvas.width = window.innerWidth;
+               canvas.height = window.innerHeight;
+               drawRidgelines();
+            }
+
+            function drawRidgelines() {
+               ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+               const ridgeCount = 144;
+               const spacing = canvas.height / (ridgeCount + 1);
+
+               for (let i = 0; i < ridgeCount; i++) {
+                  const y = spacing * (i + 1);
+                  const opacity = 0.2 + (i / ridgeCount) * 0.3;
+
+                  ctx.globalAlpha = opacity;
+                  ctx.strokeStyle = "#ffffff";
+                  ctx.lineWidth = 1;
+                  ctx.beginPath();
+
+                  for (let x = 0; x <= canvas.width; x += 2) {
+                     let waveY = y;
+
+                     waveY += 25 * Math.sin(x * 0.004 + i * 0.5);
+                     waveY += 18 * Math.sin(x * 0.009 + i * 0.8);
+                     waveY += 12 * Math.sin(x * 0.021 + i * 1.3);
+                     waveY += 8 * Math.sin(x * 0.043 + i * 2.1);
+                     waveY += 5 * Math.sin(x * 0.089 + i * 3.2);
+                     waveY += 3 * Math.sin(x * 0.167 + i * 4.7);
+
+                     if (x === 0) {
+                        ctx.moveTo(x, waveY);
+                     } else {
+                        ctx.lineTo(x, waveY);
+                     }
+                  }
+                  ctx.stroke();
+               }
+            }
+
+            window.addEventListener("resize", resizeCanvas);
+            resizeCanvas();
+         });
+      </script>
+      <div>
+         <article class="blog-post">
+            <header class="blog-header">
+               <a href="../../index.html" class="back-link">← Back to Posts</a>
+            </header>
+            <div class="blog-title">
+               starting point of this blogsite, and the story behind stoa
+            </div>
+            <div class="blog-meta">
+               <span class="blog-date">july 27, sun</span>
+               <div class="blog-tags">
+                  <span class="tag">stoa</span><span class="tag">nim</span>
+               </div>
+            </div>
+            <main class="blog-content">
+               <p>
+                  <br />
+                  this blogpost is a companion of
+                  <a href="youtube.com" target="_blank">my video on stoa</a>
+                  <br />
+               </p>
+               <h1>the necessity to start</h1>
+               <p>
+                  5 years ago, i was obsessed with a service where 2 matched
+                  users would listen to music & chat together. there's a lady
+                  having similar music preference with me. we spent hours
+                  talking about music, life, world... in the end, i questioned
+                  her "so what's the meaning of life". her answer was:
+                  <scan class="highlight">to create</scan>. <br />
+               </p>
+               <div class="sidenote annotation">
+                  back then, my interpretation is
+                  <scan class="highlight">to brood</scan>. i was a metaphysical
+                  teenager.
+               </div>
+               <p>
+                  the fact is that, i've been indulging in depression &
+                  corruption these 5 years, absolutely wasting my time & doing
+                  nothing. <br />
+                  i have serious bipolar disorder and i've been medicated for 3
+                  years. i try to take the minimum dose of quetiapine but
+                  still, my thinking ability and intelligence have been hugely
+                  affected. <br />
+                  and three years ago, i started to abuse llms. llms make me
+                  think less, write less, lazier and lazier, dumber and dumber.
+                  i've lost my creativity. <br />
+                  well. i must make a change. i must start to work more, write
+                  more, create more. i must abandon brooding and llms. and the
+                  situation is that, i don't know what to do. i know a little
+                  about computer-science & data-science but that's all. <br />
+                  this will be a long journey. but at least, i need to record
+                  it from the very beginning. <br />
+               </p>
+               <h1>what do i need to start</h1>
+               <p>so, let's clear our mind one more time.</p>
+               <div class="list-1">i want to create something</div>
+               <div class="list-1">
+                  i don't know what to create specifically for now
+               </div>
+               <div class="list-1">
+                  i'd like to record all i learn & do through the journey
+               </div>
+               <p>
+                  my plan is to explore one little subject/project per 2~3
+                  weeks. i'd like to make a video & a blogpost for every this
+                  little subject. <br />
+                  first of all, i need something that helps with video
+                  presentation & blog creation. or generally, something that
+                  helps with writing. the idea is simple: i just write
+                  presentation & blog in a text format and write a compiler to
+                  transform it to html webpage or other formats. <br />
+                  and the final solution is intuitive: crafting my custom
+                  markup language, stoa. <br />
+               </p>
+               <div class="sidenote annotation">
+                  before crafting my own markup language, i wrote a compiler
+                  that transforms a neorg<a
+                     id="ref1"
+                     href="#footnote1"
+                     class="footnote-ref"
+                     >[1]</a
+                  >
+                  workspace to a html blogsite.
+               </div>
+               <h1>starting from the philosophy implantation</h1>
+               <p>
+                  the philosophy is based on this fundamental question: in what
+                  i want to reside in? <br />
+                  i care about my sanity most. so i hope this language can
+                  formulate a feeling of calm, immersive, pure, serene, a
+                  feeling of zen. <br />
+               </p>
+               <div class="sidenote annotation">
+                  i have many metaphors & descriptors for the implatation:
+                  holy-minimalism, metaphysical-minimalism, ... anyway, you can
+                  sense that <scan class="highlight">minimalism</scan> is the
+                  central doctrine.
+               </div>
+               <p>
+                  essentially, stoa is inspired by markdown and neorg. and the
+                  philosophy is basically based on what i dislike about neorg
+                  and markdown. <br />
+               </p>
+               <h2>minimalism above all</h2>
+               <p>
+                  i'll only add a feature when it's absolutely necessary.
+                  <br />
+                  the kinds of blocks i need can be easily listed: paragraph,
+                  heading, (unordered) list, codeblock, mathblock, footnote and
+                  sidenote. i also need some inline elements: links and
+                  markups, where i only need
+                  <scan class="inlinecode">inlinecode</scan> and
+                  <scan class="highlight">highlight</scan> for markups. plus
+                  metadata, these are the whole building blocks of stoa. <br />
+                  this makes up a 47 lines grammar of stoa. <br />
+               </p>
+               <h2>independent of text editors</h2>
+               <p>
+                  stoa should work identically across all text editors. this
+                  means zero editor-specific features like syntax highlighting,
+                  real-time rendering, extensions, over-engineered building
+                  blocks and more. <br />
+               </p>
+               <h2>strictness</h2>
+               <p>
+                  stoa is intentionally strict. there's exactly one way to do
+                  each thing. <br />
+                  compare markdown's multiple list syntaxes: <br />
+               </p>
+               <div class="code-block">
+                  <pre><code>* a list
++ a list  
+- a list
+</code></pre>
+                  <span class="code-lang">markdown</span>
+               </div>
+               <p><br /></p>
+               <div class="list-1">in stoa, there's always only one way.</div>
+               <h1>
+                  lexical structure: columns, inlines and continuation rules
+               </h1>
+               <p>
+                  stoa is built on two fundamental concepts: columns and
+                  inlines. <br />
+                  a column is the abstract building block and inlines are
+                  semantic decorations within columns. we use minimal
+                  delimiters to identify these columns and markups strictly.
+                  <br />
+                  here's the full grammar of stoa: <br />
+               </p>
+               <div class="code-block">
+                  <pre><code>& inlines
+
+= markup: `inlinecode`, |highlight|, ...
+= link/ref: [url], [text | url], [#ref]
+
+& columns
+
+&& (nested) heading and list
+
+= depth 1
+== depth 2
+=== depth 3
+
+&& sidenotes
+
+-- comment
+|| annotation
+!! warning
+
+&& fenced blocks
+
+|&gt; scheme
+(display "hello stoa")
+|&gt;
+
+&gt;&gt;= math
+∑ i = n(n+1)/2
+&gt;&gt;=
+
+& metadata
+:: key  & value
+
+& footnotes
+
+invoke: [#1]
+define:
+#1 text
+
+& continuation rule
+
+= base item
+  continued on same line
+     any indentation preserves flow
+
+= new paragraph with empty line(s)
+
+  starts fresh line within block
+</code></pre>
+                  <span class="code-lang">stoa</span>
+               </div>
+               <p><br /></p>
+               <h1>a stray section about programming languages</h1>
+               <p>
+                  i've tried some languages through the project: python, rust,
+                  haskell, janet, zig, perl, ruby... <br />
+               </p>
+               <div class="list-1">
+                  haskell has always been my favorite programming language.
+                  it's also the most annoying, frastrating one, making me
+                  suicidal.
+               </div>
+               <div class="list-1">
+                  odin is my most comfortable language for low level
+                  programming.
+               </div>
+               <div class="list-1">
+                  python (pypy) comes first when writing scripts.
+               </div>
+               <div class="list-1">
+                  rust would be the first choice if i need to write a serious
+                  program.
+               </div>
+               <div class="list-1">
+                  racket is the most hygienic one for my mental health.
+               </div>
+               <div class="list-1">
+                  i won't use zig until it has a better documentation.
+               </div>
+               <p>and stoac, the stoa compiler, is written in nim. <br /></p>
+               <h1>stoac implementation workthrough</h1>
+               <p>
+                  stoac processes each stoa file in a single linear pass, line
+                  by line, without building token trees or asts. the core
+                  abstraction is the <scan class="inlinecode">lexer</scan>,
+                  which is a stateful string builder in action. <br />
+                  the single-file processing functionality of stoac is defined
+                  as: <br />
+               </p>
+               <div class="code-block">
+                  <pre><code>proc processStoaFile(inputPath: string, outputDir: string,
+      inputDir: string): BlogCard =
+   let content = readFile(inputPath).splitLines()
+   var
+      lexer = Lexer()
+      res = Res()
+
+   parseStoaFile(lexer, res, content)
+
+   let relativePath = inputPath.relativePath(inputDir)
+   let outputPath = outputDir / relativePath.replace(".stoa", ".html")
+   let outputDirPath = parentDir(outputPath)
+   if not dirExists(outputDirPath): createDir(outputDirPath)
+
+   injectHtml(res, outputPath)
+
+   return extractBlogCard(res, inputPath, inputDir)
+</code></pre>
+                  <span class="code-lang">nim</span>
+               </div>
+               <p><br /></p>
+               <div class="sidenote comment">
+                  note that the code is suppressed for illustration purpose.
+               </div>
+               <p>
+                  the first procedure we need to check here is
+                  <scan class="inlinecode">parseStoaFile</scan>: <br />
+               </p>
+               <div class="code-block">
+                  <pre><code>proc parseStoaFile(
+   lexer: var Lexer, res: var Res, lines: seq[string]
+) =
+   # when initialized, lexer.lineno is set to -1
+   # this would ensure the first line of the file being parsed correctly
+   discard lexer.forwardLine
+   while lexer.lineno &lt; lines.len:
+      lexer.parseLine(res)
+</code></pre>
+                  <span class="code-lang">nim</span>
+               </div>
+               <p><br /></p>
+               <div class="list-1">
+                  <scan class="inlinecode">lexer.forwardLine</scan> instructs
+                  the lexer to forward to the start of the next line.
+               </div>
+               <div class="list-1">
+                  <scan class="inlinecode">lexer.forwardLine</scan> would be
+                  called inside
+                  <scan class="inlinecode">lexer.parseLine</scan>, so we aren't
+                  calling it inside this while-loop.
+               </div>
+               <p>
+                  we forward to
+                  <scan class="inlinecode">parseLine</scan> procedure: <br />
+               </p>
+               <div class="code-block">
+                  <pre><code>proc parseLine(lexer: var Lexer, res: var Res) =
+   var ckind = lexer.line.getColumnKind
+   lexer.parseColumn(res, ckind)
+</code></pre>
+                  <span class="code-lang">nim</span>
+               </div>
+               <p>
+                  <br />
+                  note that currently, lexer is always positioned at the very
+                  start of a column. the first thing it actually does is to
+                  recognize the kind of that column. <br />
+               </p>
+               <div class="code-block">
+                  <pre><code>type
+   ColumnKind {.pure.} = enum
+      paragraph, heading, list, comment, ...
+
+proc getColumnKind(line: string): ColumnKind =
+   var state = "START"
+   for c in line:
+      let key = (state, c)
+      if key in columnTransitions: state = columnTransitions[key]
+      elif state == "START": return paragraph
+      elif state in columnFinalStates and c != ' ': return columnFinalStates[state]
+      else: return paragraph
+</code></pre>
+                  <span class="code-lang">nim</span>
+               </div>
+               <p>
+                  <br />
+                  stoac analyzes the current column kind by using a finite
+                  state machine with transition table. for example, the
+                  transitions for heading and comment is: <br />
+               </p>
+               <div class="code-block">
+                  <pre><code>const
+   columnTransitions = {
+      ("START", '&'): "HEADING_0", ("HEADING_0", '&'): "HEADING_0",
+      ("HEADING_0", ' '): "HEADING_F", ("HEADING_F", ' '): "HEADING_F",
+
+      ("START", '-'): "COMMENT_0", ("COMMENT_0", '-'): "COMMENT_1",
+      ("COMMENT_1", ' '): "COMMENT_F", ("COMMENT_F", ' '): "COMMENT_F",
+   }.toTable
+</code></pre>
+                  <span class="code-lang">nim</span>
+               </div>
+               <p><br /></p>
+               <div class="list-1">
+                  the initial state is <scan class="inlinecode">START</scan>.
+               </div>
+               <div class="list-1">
+                  for each character in the line, we compute a transition key:
+                  (current state, current character).
+               </div>
+               <div class="list-1">
+                  if the key exists in the transition table, we update the
+                  state.
+               </div>
+               <div class="list-1">
+                  if the key is missing and we’re still in
+                  <scan class="inlinecode">START</scan>, the line is a
+                  paragraph.
+               </div>
+               <div class="list-1">
+                  if the current state is a final state, we map it to a
+                  specific column kind.
+               </div>
+               <p>
+                  let's try to input
+                  <scan class="inlinecode">&& this is a heading</scan> into the
+                  fsm:
+               </p>
+               <div class="list-1">
+                  the first transition key is
+                  <scan class="inlinecode">("START", '&')</scan>, which is in
+                  the table and we get the updated state
+                  <scan class="inlinecode">HEADING_0</scan>.
+               </div>
+               <div class="list-1">
+                  the next transition key is
+                  <scan class="inlinecode">("HEADING_0", '&')</scan>, which is
+                  in the table and we get the updated state
+                  <scan class="inlinecode">HEADING_0</scan>.
+               </div>
+               <div class="list-1">
+                  the next transition key is
+                  <scan class="inlinecode">("HEADING_0", ' ')</scan>, which is
+                  in the table and we get the updated state
+                  <scan class="inlinecode">HEADING_F</scan>.
+               </div>
+               <div class="list-1">
+                  the next transition key is
+                  <scan class="inlinecode">("HEADING_F", 't')</scan>, which is
+                  not in the table but the state is a final state (marked by
+                  <scan class="inlinecode">_F</scan>).
+               </div>
+               <div class="list-1">
+                  we return the column kind
+                  <scan class="inlinecode">heading</scan>.
+               </div>
+               <p>
+                  we forward to <scan class="inlinecode">parseColumn</scan>,
+                  which is essentially a router to different specific parser
+                  combinators based on the cloumn kind. <br />
+               </p>
+               <div class="code-block">
+                  <pre><code>proc parseLine(lexer: var Lexer, res: var Res) =
+   var ckind = lexer.line.getColumnKind
+   lexer.parseColumn(res, ckind)
+
+proc parseColumn(lexer: var Lexer, res: var Res, ckind: ColumnKind) =
+   case ckind
+   of heading: lexer.parseHeading
+   of list: lexer.parseNested(ckind)
+   of comment: lexer.parseSidenote(ckind)
+   else: lexer.parseParagraph
+   lexer.appendColumn(res, ckind)
+</code></pre>
+                  <span class="code-lang">nim</span>
+               </div>
+               <p>
+                  <br />
+                  we take the combinator for sidenotes here for example: <br />
+               </p>
+               <div class="code-block">
+                  <pre><code>proc parseSidenote(lexer: var Lexer, ckind: ColumnKind) =
+   let classStr = case ckind
+      of annotation: "annotation"
+      of warning: "warning"
+      else: "comment"
+   lexer.cur &= fmt"&lt;div class='sidenote {classStr}'&gt;"
+   let parts = lexer.line.splitWhitespace(1)
+   let content = if parts.len &gt; 1: parts[1] else: ""
+   lexer.parseContentWithContinuation(content)
+   lexer.cur &= "&lt;/div&gt;"
+
+proc parseContentWithContinuation(lexer: var Lexer, content: string) =
+   lexer.line = content.strip
+   lexer.char = lexer.line[lexer.offset]
+   lexer.parseInlineElements
+   while true:
+      if not lexer.forwardLine: break
+      if lexer.line.isEmptyOrWhitespace: lexer.cur &= "&lt;br/&gt;"
+      elif lexer.char == ' ':
+         lexer.line = lexer.line.strip
+         lexer.char = lexer.line[lexer.offset]
+         lexer.parseInlineElements
+      else: break
+</code></pre>
+                  <span class="code-lang">nim</span>
+               </div>
+               <p>
+                  <br />
+                  essentially, what it does is:
+               </p>
+               <div class="list-1">
+                  matches the sidenote type (annotation, warning, comment) and
+                  opens the corresponding html tag.
+               </div>
+               <div class="list-1">
+                  strips the delimiters and parse inline elements in the
+                  current line.
+               </div>
+               <div class="list-1">
+                  advances through lines, parse inline elements as long as the
+                  continuation condition holds.
+               </div>
+               <p>
+                  the next procedure is
+                  <scan class="inlinecode">parseInlineElements</scan>: <br />
+               </p>
+               <div class="code-block">
+                  <pre><code>proc parseInlineElements(lexer: var Lexer) =
+   while true:
+      if lexer.char in markupSymbols: lexer.parseMarkup
+      elif lexer.char == '[': lexer.parseLink
+      else: lexer.cur &= escapeHtmlChar(lexer.char)
+      if not lexer.forwardChar: break
+</code></pre>
+                  <span class="code-lang">nim</span>
+               </div>
+               <p>
+                  <br />
+                  stoac parses inline elements character by character:
+               </p>
+               <div class="list-1">
+                  if a markup delimiter is found, a markup parser (also a
+                  finite state machine) is used.
+               </div>
+               <div class="list-1">
+                  if a link delimiter is encountered, a link parser is invoked.
+               </div>
+               <div class="list-1">
+                  regular characters are escaped and appended to the buffer.
+               </div>
+               <div class="sidenote annotation">
+                  note that links and markups are strictly single-line, they
+                  cannot span lines. the implementation of
+                  <scan class="inlinecode">parseMarkup</scan> and
+                  <scan class="inlinecode">parseLink</scan> are trivial. we
+                  just skip them here.
+               </div>
+               <p>
+                  with <scan class="inlinecode">parseInlineElements</scan>, we
+                  append translated html output of the column character by
+                  character to the tmp buffer
+                  <scan class="inlinecode">lexer.cur</scan>. we then return to
+                  <scan class="inlinecode">parseColumn</scan> and next step
+                  <scan class="inlinecode">appendColumn</scan> will append the
+                  tmp buffer to the main output string
+                  <scan class="inlinecode">res.document</scan>. the tmp buffer
+                  is then cleared. <br />
+               </p>
+               <div class="code-block">
+                  <pre><code>proc parseColumn(lexer: var Lexer, res: var Res, ckind: ColumnKind) =
+   case ckind
+   of heading: lexer.parseHeading
+   of list: lexer.parseNested(ckind)
+   of comment: lexer.parseSidenote(ckind)
+   else: lexer.parseParagraph
+   lexer.appendColumn(res, ckind)
+</code></pre>
+                  <span class="code-lang">nim</span>
+               </div>
+               <p>
+                  <br />
+                  note that at the current stage, lexer is already positioned
+                  at the start of the next column. we return to the root
+                  <scan class="inlinecode">parseStoaFile</scan> procedure and
+                  start to <scan class="inlinecode">parseLine</scan> again, and
+                  again, until the end of file. <br />
+               </p>
+               <div class="code-block">
+                  <pre><code>proc parseStoaFile(
+   lexer: var Lexer, res: var Res, lines: seq[string]
+) =
+   ...
+   while lexer.lineno &lt; lines.len:
+      lexer.parseLine(res)
+</code></pre>
+                  <span class="code-lang">nim</span>
+               </div>
+               <p>
+                  <br />
+                  to summarize, stoac’s translation pipeline is a strict,
+                  single-pass process:
+               </p>
+               <div class="list-1">
+                  detect column kind via finite state machine
+               </div>
+               <div class="list-1">route to the appropriate combinator</div>
+               <div class="list-1">parse inlines within the column</div>
+               <div class="list-1">append output and continue</div>
+               <h1>closing thoughts</h1>
+            </main>
+            <div id="footnote1" class="footnote">
+               <a href="#ref1" class="footnote-ref">[1]</a> neorg is the markup
+               language i abused before crafting stoa. it's a beautiful &
+               powerful language, especially inside neovim.
+            </div>
+         </article>
+      </div>
+   </body>
+</html>

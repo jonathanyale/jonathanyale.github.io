@@ -1,0 +1,234 @@
+@font-face {
+   font-family: "Federo";
+   src: url("./fonts/Federo.woff2") format("woff2");
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "Iosevka Light";
+   src: url("./fonts/IosevkaNerdFont-Light.woff2") format("woff2");
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: "FiraCode";
+   src: url("./fonts/FiraCode.woff2") format("woff2");
+   font-weight: normal;
+   font-style: normal;
+}
+
+:root {
+   --unit: 8px;
+   --space-base: 8px;
+   --phi: 1.618;
+
+   --space-0: 0;
+   --space-1: calc(var(--unit) * 1);
+   --space-2: calc(var(--unit) * 2);
+   --space-3: calc(var(--unit) * 3);
+   --space-4: calc(var(--unit) * 4);
+   --space-5: calc(var(--unit) * 5);
+   --space-6: calc(var(--unit) * 6);
+   --space-8: calc(var(--unit) * 8);
+   --space-10: calc(var(--unit) * 10);
+   --space-12: calc(var(--unit) * 12);
+   --space-16: calc(var(--unit) * 16);
+   --space-24: calc(var(--unit) * 24);
+
+   --text-xs: 0.618rem;
+   --text-sm: 0.764rem;
+   --text-base: 1rem;
+   --text-lg: 1.25rem;
+   --text-xl: calc(1rem * var(--phi));
+   --text-2xl: calc(1rem * var(--phi) * var(--phi));
+   --text-3xl: calc(1rem * var(--phi) * var(--phi) * var(--phi));
+   --text-4xl: calc(1rem * var(--phi) * var(--phi) * var(--phi) * var(--phi));
+
+   --content-width: 768px;
+   --sidebar-width: 320px;
+   --line-height: var(--phi);
+
+   --font-heading: "Federo", serif;
+   --font-body: "Iosevka Light", sans-serif;
+   --font-code: "FiraCode", monospace;
+
+   --void: #1a1a1a;
+   --darkness: #242424;
+   --shadow: #2e2e2e;
+   --surface: #383838;
+   --border: #4a4a4a;
+   --text: #e5e5e5;
+   --text-dim: #b8b8b8;
+   --text-faint: #888888;
+   --accent: #a0a0a0;
+   --accent-dim: #909090;
+}
+
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
+}
+
+html {
+   font-size: 14px;
+   line-height: var(--line-height);
+   -webkit-text-size-adjust: 100%;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+   background: var(--void);
+   color: var(--text);
+   font-family: var(--font-body);
+   font-size: var(--text-base);
+   font-weight: 400;
+   line-height: var(--line-height);
+   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: var(--font-heading);
+   line-height: 1em;
+   font-weight: 100;
+}
+
+h1 {
+   font-size: var(--text-3xl);
+   color: var(--accent);
+   margin: var(--space-4) 0 var(--space-4);
+}
+
+h2 {
+   font-size: var(--text-2xl);
+   color: var(--accent-dim);
+   margin: var(--space-3) 0 var(--space-3);
+}
+
+h3 {
+   font-size: var(--text-xl);
+   color: var(--text);
+   margin: var(--space-2) 0 var(--space-2);
+}
+
+h4,
+h5,
+h6 {
+   font-size: var(--text-lg);
+   color: var(--text-dim);
+   margin: var(--space-1) 0 var(--space-1);
+}
+
+p {
+   font-family: var(--font-body);
+   font-size: var(--text-base);
+   color: var(--text);
+}
+
+br {
+   display: block;
+   margin: 0.6rem 0;
+}
+
+a {
+   color: var(--text);
+   text-decoration: none;
+   border-bottom: 1px solid transparent;
+}
+
+a:hover {
+   border-bottom-color: var(--accent);
+}
+
+pre {
+   font-size: var(--text-sm);
+   background: var(--darkness);
+   color: var(--accent-dim);
+   margin: var(--space-1) 0;
+   padding: var(--space-3);
+   border: 1px solid var(--border);
+   overflow-x: auto;
+}
+
+code {
+   font-family: var(--font-code);
+}
+
+.inlinecode {
+   font-family: var(--font-code);
+   background: #1f2428;
+   color: #c9d1d9;
+   border-radius: 3px;
+   border: 1px;
+   margin: 1px;
+}
+
+.highlight {
+   color: #f0c674;
+}
+
+.code-block {
+   position: relative;
+}
+
+.code-lang {
+   position: absolute;
+   bottom: var(--space-2);
+   right: var(--space-2);
+   font-family: var(--font-code);
+   font-size: var(--text-xs);
+   color: var(--text-faint);
+   pointer-events: none;
+}
+
+.list-1 {
+   margin-left: var(--space-3);
+   position: relative;
+}
+
+.list-1::before {
+   content: "•";
+   position: absolute;
+   left: calc(-1 * var(--space-2));
+   color: var(--text-faint);
+}
+
+.list-2 {
+   margin-left: var(--space-4);
+   position: relative;
+}
+
+.list-2::before {
+   content: "•";
+   position: absolute;
+   left: calc(-1 * var(--space-2));
+   color: var(--text-faint);
+}
+
+.pattern-container {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 10;
+   pointer-events: none;
+   overflow: hidden;
+}
+
+#ridgelineCanvas {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   opacity: 0.3;
+}
