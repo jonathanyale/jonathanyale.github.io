@@ -6,8 +6,8 @@
 }
 
 @font-face {
-   font-family: "Iosevka Light";
-   src: url("./fonts/IosevkaNerdFont-Light.woff2") format("woff2");
+   font-family: "Iosevka";
+   src: url("./fonts/IosevkaNerdFont.woff2") format("woff2");
    font-weight: normal;
    font-style: normal;
 }
@@ -51,7 +51,7 @@
    --line-height: var(--phi);
 
    --font-heading: "Federo", serif;
-   --font-body: "Iosevka Light", sans-serif;
+   --font-body: "Iosevka", sans-serif;
    --font-code: "FiraCode", monospace;
 
    --void: #1a1a1a;
