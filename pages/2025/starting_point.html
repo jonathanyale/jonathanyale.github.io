@@ -81,12 +81,7 @@
                </div>
             </div>
             <main class="blog-content">
-               <p>
-                  <br />
-                  this blogpost is a companion of
-                  <a href="youtube.com" target="_blank">my video on stoa</a>
-                  <br />
-               </p>
+               <p><br /></p>
                <h1>the necessity to start</h1>
                <p>
                   5 years ago, i was obsessed with a service where 2 matched
@@ -132,6 +127,12 @@
                   my plan is to explore one little subject/project per 2~3
                   weeks. i'd like to make a video & a blogpost for every this
                   little subject. <br />
+               </p>
+               <div class="sidenote annotation">
+                  (un)fortunately, i find myself terrible at videos, and i've
+                  delayed the plan of making videos.
+               </div>
+               <p>
                   first of all, i need something that helps with video
                   presentation & blog creation. or generally, something that
                   helps with writing. the idea is simple: i just write
@@ -166,13 +167,20 @@
                </div>
                <p>
                   essentially, stoa is inspired by markdown and neorg. and the
-                  philosophy is basically based on what i dislike about neorg
-                  and markdown. <br />
+                  philosophy is basically derived from what i dislike about
+                  neorg and markdown. <br />
                </p>
                <h2>minimalism above all</h2>
                <p>
-                  i'll only add a feature when it's absolutely necessary.
+                  neorg is beautiful & powerful but it's by no means minimal.
+                  you may need half a day to understand how to use it and a
+                  month to use if effectively. even now, i still need to
+                  recheck the spec to remember some parts of the language.
                   <br />
+                  i want a language you can fully understand and use in like,
+                  10 mins. <br />
+                  to achieve this, i'll only add a feature when it's absolutely
+                  necessary. <br />
                   the kinds of blocks i need can be easily listed: paragraph,
                   heading, (unordered) list, codeblock, mathblock, footnote and
                   sidenote. i also need some inline elements: links and
@@ -184,16 +192,20 @@
                </p>
                <h2>independent of text editors</h2>
                <p>
-                  stoa should work identically across all text editors. this
-                  means zero editor-specific features like syntax highlighting,
-                  real-time rendering, extensions, over-engineered building
-                  blocks and more. <br />
+                  since june, i've migrated to helix and quite likely won't
+                  return to neovim. i'll certainly move to different editors in
+                  the future, but i shouldn't need to transform my existing
+                  files. <br />
+                  to achieve this, stoa must work identically across all text
+                  editors. this means zero editor-specific features like syntax
+                  highlighting, real-time rendering, extensions,
+                  over-engineered building blocks and more. <br />
                </p>
                <h2>strictness</h2>
                <p>
                   stoa is intentionally strict. there's exactly one way to do
                   each thing. <br />
-                  compare markdown's multiple list syntaxes: <br />
+                  compare markdown's multiple unordered list syntaxes
                </p>
                <div class="code-block">
                   <pre><code>* a list
@@ -202,8 +214,16 @@
 </code></pre>
                   <span class="code-lang">markdown</span>
                </div>
+               <p>
+                  <br />
+                  with stoa's monopoly unordered list syntax.
+               </p>
+               <div class="code-block">
+                  <pre><code>= in stoa, there's always only one way.
+</code></pre>
+                  <span class="code-lang">stoa</span>
+               </div>
                <p><br /></p>
-               <div class="list-1">in stoa, there's always only one way.</div>
                <h1>
                   lexical structure: columns, inlines and continuation rules
                </h1>
@@ -296,6 +316,10 @@ define:
                   i won't use zig until it has a better documentation.
                </div>
                <p>and stoac, the stoa compiler, is written in nim. <br /></p>
+               <div class="sidenote annotation">
+                  i fail to figure out the reason of choosing nim. i suppose
+                  it's just the intuition.
+               </div>
                <h1>stoac implementation workthrough</h1>
                <p>
                   stoac processes each stoa file in a single linear pass, line
@@ -616,6 +640,25 @@ proc parseContentWithContinuation(lexer: var Lexer, content: string) =
                <div class="list-1">parse inlines within the column</div>
                <div class="list-1">append output and continue</div>
                <h1>closing thoughts</h1>
+               <p>
+                  it's actually been a long journey. and still, it's just the
+                  starting point of this journey. maybe i should make some
+                  wishes here. <br />
+               </p>
+               <div class="list-1">
+                  my dream is to make my family live a better life.
+               </div>
+               <div class="list-1">
+                  i hope i can stop using
+                  <scan class="highlight">mental health</scan> as my excuse of
+                  being lazy.
+               </div>
+               <div class="list-1">i hope i can create something.</div>
+               <p>
+                  if you are experiencing similar issues, i sincerely wish this
+                  blogpost, this blogsite can help you, and you can live a good
+                  life. <br />
+               </p>
             </main>
             <div id="footnote1" class="footnote">
                <a href="#ref1" class="footnote-ref">[1]</a> neorg is the markup
