@@ -22,7 +22,8 @@
 :root {
    --unit: 8px;
    --space-base: 8px;
-   --phi: 1.618;
+   --phi: 1.272;
+   --inv-phi: 0.786;
 
    --space-0: 0;
    --space-1: calc(var(--unit) * 1);
@@ -46,24 +47,25 @@
    --text-3xl: calc(1rem * var(--phi) * var(--phi) * var(--phi));
    --text-4xl: calc(1rem * var(--phi) * var(--phi) * var(--phi) * var(--phi));
 
-   --content-width: 768px;
-   --sidebar-width: 320px;
+   --content-width: 800px;
+   --sidebar-width: calc(var(--content-width) * pow(var(--inv-phi), 7));
    --line-height: var(--phi);
 
    --font-heading: "Federo", serif;
    --font-body: "Iosevka", sans-serif;
    --font-code: "FiraCode", monospace;
 
-   --void: #1a1a1a;
-   --darkness: #242424;
-   --shadow: #2e2e2e;
-   --surface: #383838;
-   --border: #4a4a4a;
-   --text: #e5e5e5;
+   --void: #0f0f0f;
+   --darkness: #1a1a1a;
+   --shadow: #242424;
+   --surface: #2a2a2a;
+   --border: #3a3a3a;
+   --text: #e8e8e8;
    --text-dim: #b8b8b8;
    --text-faint: #888888;
-   --accent: #a0a0a0;
-   --accent-dim: #909090;
+   --accent: #d0d0d0;
+   --accent-dim: #a8a8a8;
+   --highlight: #f03374;
 }
 
 *,

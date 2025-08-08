@@ -32,21 +32,21 @@
                <h1>the necessity to start</h1>
                <p>
                   5 years ago, i was obsessed with a service where 2 matched
-                  users would listen to music & chat together. there's a lady
-                  having similar music preference with me. we spent hours
+                  users would listen to music &amp; chat together. there's a
+                  lady having similar music preference with me. we spent hours
                   talking about music, life, world... in the end, i questioned
                   her "so what's the meaning of life". her answer was:
-                  <scan class="highlight">to create</scan>. <br />
+                  <span class="highlight">to create</span>. <br />
                </p>
                <div class="sidenote annotation">
                   back then, my interpretation is
-                  <scan class="highlight">to brood</scan>. i was a metaphysical
+                  <span class="highlight">to brood</span>. i was a metaphysical
                   teenager.
                </div>
                <p>
-                  the fact is that, i've been indulging in depression &
-                  corruption these 5 years, absolutely wasting my time & doing
-                  nothing. <br />
+                  the fact is that, i've been indulging in depression &amp;
+                  corruption these 5 years, absolutely wasting my time &amp;
+                  doing nothing. <br />
                   i have serious bipolar disorder and i've been medicated for 3
                   years. i try to take the minimum dose of quetiapine but
                   still, my thinking ability and intelligence have been hugely
@@ -57,7 +57,8 @@
                   well. i must make a change. i must start to work more, write
                   more, create more. i must abandon brooding and llms. and the
                   situation is that, i don't know what to do. i know a little
-                  about computer-science & data-science but that's all. <br />
+                  about computer-science &amp; data-science but that's all.
+                  <br />
                   this will be a long journey. but at least, i need to record
                   it from the very beginning. <br />
                </p>
@@ -68,12 +69,12 @@
                   i don't know what to create specifically for now
                </div>
                <div class="list-1">
-                  i'd like to record all i learn & do through the journey
+                  i'd like to record all i learn &amp; do through the journey
                </div>
                <p>
                   my plan is to explore one little subject/project per 2~3
-                  weeks. i'd like to make a video & a blogpost for every this
-                  little subject. <br />
+                  weeks. i'd like to make a video &amp; a blogpost for every
+                  this little subject. <br />
                </p>
                <div class="sidenote annotation">
                   (un)fortunately, i find myself terrible at videos, and i've
@@ -81,10 +82,10 @@
                </div>
                <p>
                   first of all, i need something that helps with video
-                  presentation & blog creation. or generally, something that
-                  helps with writing. the idea is simple: i just write
-                  presentation & blog in a text format and write a compiler to
-                  transform it to html webpage or other formats. <br />
+                  presentation &amp; blog creation. or generally, something
+                  that helps with writing. the idea is simple: i just write
+                  presentation &amp; blog in a text format and write a compiler
+                  to transform it to html webpage or other formats. <br />
                   and the final solution is intuitive: crafting my custom
                   markup language, stoa. <br />
                </p>
@@ -107,9 +108,9 @@
                   feeling of zen. <br />
                </p>
                <div class="sidenote annotation">
-                  i have many metaphors & descriptors for the implatation:
+                  i have many metaphors &amp; descriptors for the implatation:
                   holy-minimalism, metaphysical-minimalism, ... anyway, you can
-                  sense that <scan class="highlight">minimalism</scan> is the
+                  sense that <span class="highlight">minimalism</span> is the
                   central doctrine.
                </div>
                <p>
@@ -119,9 +120,9 @@
                </p>
                <h2>minimalism above all</h2>
                <p>
-                  neorg is beautiful & powerful but it's by no means minimal.
-                  you may need half a day to understand how to use it and a
-                  month to use if effectively. even now, i still need to
+                  neorg is beautiful &amp; powerful but it's by no means
+                  minimal. you may need half a day to understand how to use it
+                  and a month to use if effectively. even now, i still need to
                   recheck the spec to remember some parts of the language.
                   <br />
                   i want a language you can fully understand and use in like,
@@ -132,8 +133,8 @@
                   heading, (unordered) list, codeblock, mathblock, footnote and
                   sidenote. i also need some inline elements: links and
                   markups, where i only need
-                  <scan class="inlinecode">inlinecode</scan> and
-                  <scan class="highlight">highlight</scan> for markups. plus
+                  <span class="inlinecode">inlinecode</span> and
+                  <span class="highlight">highlight</span> for markups. plus
                   metadata, these are the whole building blocks of stoa. <br />
                   this makes up a 47 lines grammar of stoa. <br />
                </p>
@@ -184,26 +185,26 @@
                   here's the full grammar of stoa: <br />
                </p>
                <div class="code-block">
-                  <pre><code>& inlines
+                  <pre><code>&amp; inlines
 
 = markup: `inlinecode`, |highlight|, ...
 = link/ref: [url], [text | url], [#ref]
 
-& columns
+&amp; columns
 
-&& (nested) heading and list
+&amp;&amp; (nested) heading and list
 
 = depth 1
 == depth 2
 === depth 3
 
-&& sidenotes
+&amp;&amp; sidenotes
 
 -- comment
 || annotation
 !! warning
 
-&& fenced blocks
+&amp;&amp; fenced blocks
 
 |&gt; scheme
 (display "hello stoa")
@@ -213,16 +214,16 @@
 ∑ i = n(n+1)/2
 &gt;&gt;=
 
-& metadata
-:: key  & value
+&amp; metadata
+:: key  &amp; value
 
-& footnotes
+&amp; footnotes
 
 invoke: [#1]
 define:
 #1 text
 
-& continuation rule
+&amp; continuation rule
 
 = base item
   continued on same line
@@ -271,7 +272,7 @@ define:
                <p>
                   stoac processes each stoa file in a single linear pass, line
                   by line, without building token trees or asts. the core
-                  abstraction is the <scan class="inlinecode">lexer</scan>,
+                  abstraction is the <span class="inlinecode">lexer</span>,
                   which is a stateful string builder in action. <br />
                   the single-file processing functionality of stoac is defined
                   as: <br />
@@ -303,7 +304,7 @@ define:
                </div>
                <p>
                   the first procedure we need to check here is
-                  <scan class="inlinecode">parseStoaFile</scan>: <br />
+                  <span class="inlinecode">parseStoaFile</span>: <br />
                </p>
                <div class="code-block">
                   <pre><code>proc parseStoaFile(
@@ -319,18 +320,18 @@ define:
                </div>
                <p><br /></p>
                <div class="list-1">
-                  <scan class="inlinecode">lexer.forwardLine</scan> instructs
+                  <span class="inlinecode">lexer.forwardLine</span> instructs
                   the lexer to forward to the start of the next line.
                </div>
                <div class="list-1">
-                  <scan class="inlinecode">lexer.forwardLine</scan> would be
+                  <span class="inlinecode">lexer.forwardLine</span> would be
                   called inside
-                  <scan class="inlinecode">lexer.parseLine</scan>, so we aren't
+                  <span class="inlinecode">lexer.parseLine</span>, so we aren't
                   calling it inside this while-loop.
                </div>
                <p>
                   we forward to
-                  <scan class="inlinecode">parseLine</scan> procedure: <br />
+                  <span class="inlinecode">parseLine</span> procedure: <br />
                </p>
                <div class="code-block">
                   <pre><code>proc parseLine(lexer: var Lexer, res: var Res) =
@@ -370,7 +371,7 @@ proc getColumnKind(line: string): ColumnKind =
                <div class="code-block">
                   <pre><code>const
    columnTransitions = {
-      ("START", '&'): "HEADING_0", ("HEADING_0", '&'): "HEADING_0",
+      ("START", '&amp;'): "HEADING_0", ("HEADING_0", '&amp;'): "HEADING_0",
       ("HEADING_0", ' '): "HEADING_F", ("HEADING_F", ' '): "HEADING_F",
 
       ("START", '-'): "COMMENT_0", ("COMMENT_0", '-'): "COMMENT_1",
@@ -381,7 +382,7 @@ proc getColumnKind(line: string): ColumnKind =
                </div>
                <p><br /></p>
                <div class="list-1">
-                  the initial state is <scan class="inlinecode">START</scan>.
+                  the initial state is <span class="inlinecode">START</span>.
                </div>
                <div class="list-1">
                   for each character in the line, we compute a transition key:
@@ -393,7 +394,7 @@ proc getColumnKind(line: string): ColumnKind =
                </div>
                <div class="list-1">
                   if the key is missing and we’re still in
-                  <scan class="inlinecode">START</scan>, the line is a
+                  <span class="inlinecode">START</span>, the line is a
                   paragraph.
                </div>
                <div class="list-1">
@@ -402,39 +403,39 @@ proc getColumnKind(line: string): ColumnKind =
                </div>
                <p>
                   let's try to input
-                  <scan class="inlinecode">&& this is a heading</scan> into the
-                  fsm:
+                  <span class="inlinecode">&amp;&amp; this is a heading</span>
+                  into the fsm:
                </p>
                <div class="list-1">
                   the first transition key is
-                  <scan class="inlinecode">("START", '&')</scan>, which is in
-                  the table and we get the updated state
-                  <scan class="inlinecode">HEADING_0</scan>.
-               </div>
-               <div class="list-1">
-                  the next transition key is
-                  <scan class="inlinecode">("HEADING_0", '&')</scan>, which is
+                  <span class="inlinecode">("START", '&amp;')</span>, which is
                   in the table and we get the updated state
-                  <scan class="inlinecode">HEADING_0</scan>.
+                  <span class="inlinecode">HEADING_0</span>.
                </div>
                <div class="list-1">
                   the next transition key is
-                  <scan class="inlinecode">("HEADING_0", ' ')</scan>, which is
+                  <span class="inlinecode">("HEADING_0", '&amp;')</span>, which
+                  is in the table and we get the updated state
+                  <span class="inlinecode">HEADING_0</span>.
+               </div>
+               <div class="list-1">
+                  the next transition key is
+                  <span class="inlinecode">("HEADING_0", ' ')</span>, which is
                   in the table and we get the updated state
-                  <scan class="inlinecode">HEADING_F</scan>.
+                  <span class="inlinecode">HEADING_F</span>.
                </div>
                <div class="list-1">
                   the next transition key is
-                  <scan class="inlinecode">("HEADING_F", 't')</scan>, which is
+                  <span class="inlinecode">("HEADING_F", 't')</span>, which is
                   not in the table but the state is a final state (marked by
-                  <scan class="inlinecode">_F</scan>).
+                  <span class="inlinecode">_F</span>).
                </div>
                <div class="list-1">
                   we return the column kind
-                  <scan class="inlinecode">heading</scan>.
+                  <span class="inlinecode">heading</span>.
                </div>
                <p>
-                  we forward to <scan class="inlinecode">parseColumn</scan>,
+                  we forward to <span class="inlinecode">parseColumn</span>,
                   which is essentially a router to different specific parser
                   combinators based on the cloumn kind. <br />
                </p>
@@ -463,11 +464,11 @@ proc parseColumn(lexer: var Lexer, res: var Res, ckind: ColumnKind) =
       of annotation: "annotation"
       of warning: "warning"
       else: "comment"
-   lexer.cur &= fmt"&lt;div class='sidenote {classStr}'&gt;"
+   lexer.cur &amp;= fmt"&lt;div class='sidenote {classStr}'&gt;"
    let parts = lexer.line.splitWhitespace(1)
    let content = if parts.len &gt; 1: parts[1] else: ""
    lexer.parseContentWithContinuation(content)
-   lexer.cur &= "&lt;/div&gt;"
+   lexer.cur &amp;= "&lt;/div&gt;"
 
 proc parseContentWithContinuation(lexer: var Lexer, content: string) =
    lexer.line = content.strip
@@ -475,7 +476,7 @@ proc parseContentWithContinuation(lexer: var Lexer, content: string) =
    lexer.parseInlineElements
    while true:
       if not lexer.forwardLine: break
-      if lexer.line.isEmptyOrWhitespace: lexer.cur &= "&lt;br/&gt;"
+      if lexer.line.isEmptyOrWhitespace: lexer.cur &amp;= "&lt;br/&gt;"
       elif lexer.char == ' ':
          lexer.line = lexer.line.strip
          lexer.char = lexer.line[lexer.offset]
@@ -502,14 +503,14 @@ proc parseContentWithContinuation(lexer: var Lexer, content: string) =
                </div>
                <p>
                   the next procedure is
-                  <scan class="inlinecode">parseInlineElements</scan>: <br />
+                  <span class="inlinecode">parseInlineElements</span>: <br />
                </p>
                <div class="code-block">
                   <pre><code>proc parseInlineElements(lexer: var Lexer) =
    while true:
       if lexer.char in markupSymbols: lexer.parseMarkup
       elif lexer.char == '[': lexer.parseLink
-      else: lexer.cur &= escapeHtmlChar(lexer.char)
+      else: lexer.cur &amp;= escapeHtmlChar(lexer.char)
       if not lexer.forwardChar: break
 </code></pre>
                   <span class="code-lang">nim</span>
@@ -531,19 +532,19 @@ proc parseContentWithContinuation(lexer: var Lexer, content: string) =
                <div class="sidenote annotation">
                   note that links and markups are strictly single-line, they
                   cannot span lines. the implementation of
-                  <scan class="inlinecode">parseMarkup</scan> and
-                  <scan class="inlinecode">parseLink</scan> are trivial. we
+                  <span class="inlinecode">parseMarkup</span> and
+                  <span class="inlinecode">parseLink</span> are trivial. we
                   just skip them here.
                </div>
                <p>
-                  with <scan class="inlinecode">parseInlineElements</scan>, we
+                  with <span class="inlinecode">parseInlineElements</span>, we
                   append translated html output of the column character by
                   character to the tmp buffer
-                  <scan class="inlinecode">lexer.cur</scan>. we then return to
-                  <scan class="inlinecode">parseColumn</scan> and next step
-                  <scan class="inlinecode">appendColumn</scan> will append the
+                  <span class="inlinecode">lexer.cur</span>. we then return to
+                  <span class="inlinecode">parseColumn</span> and next step
+                  <span class="inlinecode">appendColumn</span> will append the
                   tmp buffer to the main output string
-                  <scan class="inlinecode">res.document</scan>. the tmp buffer
+                  <span class="inlinecode">res.document</span>. the tmp buffer
                   is then cleared. <br />
                </p>
                <div class="code-block">
@@ -561,8 +562,8 @@ proc parseContentWithContinuation(lexer: var Lexer, content: string) =
                   <br />
                   note that at the current stage, lexer is already positioned
                   at the start of the next column. we return to the root
-                  <scan class="inlinecode">parseStoaFile</scan> procedure and
-                  start to <scan class="inlinecode">parseLine</scan> again, and
+                  <span class="inlinecode">parseStoaFile</span> procedure and
+                  start to <span class="inlinecode">parseLine</span> again, and
                   again, until the end of file. <br />
                </p>
                <div class="code-block">
@@ -597,7 +598,7 @@ proc parseContentWithContinuation(lexer: var Lexer, content: string) =
                </div>
                <div class="list-1">
                   i hope i can stop using
-                  <scan class="highlight">mental health</scan> as my excuse of
+                  <span class="highlight">mental health</span> as my excuse of
                   being lazy.
                </div>
                <div class="list-1">i hope i can create something.</div>
@@ -609,7 +610,7 @@ proc parseContentWithContinuation(lexer: var Lexer, content: string) =
             </main>
             <div id="footnote1" class="footnote">
                <a href="#ref1" class="footnote-ref">[1]</a> neorg is the markup
-               language i abused before crafting stoa. it's a beautiful &
+               language i abused before crafting stoa. it's a beautiful &amp;
                powerful language, especially inside neovim.
             </div>
          </article>
