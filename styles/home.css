@@ -1,10 +1,10 @@
 .sidebar {
    position: fixed;
    left: 10px;
-   width: 240px;
+   width: 120px;
    height: 100vh;
    background: var(--color-surface);
-   padding: var(--space-3);
+   padding: var(--space-3) var(--space-2);
    overflow-y: auto;
    z-index: 100;
    display: flex;
@@ -13,8 +13,8 @@
 }
 
 .profile-name {
-   font-family: var(--font-heading);
-   font-size: var(--text-3xl);
+   font-family: var(--font-title);
+   font-size: var(--text-xl);
    font-weight: 100;
    color: var(--accent);
    margin-bottom: var(--space-2);
@@ -84,7 +84,7 @@
 
 .main-content {
    flex: 1;
-   margin-left: 168px;
+   margin-left: 80px;
    padding-left: var(--space-8);
    background: var(--void);
    min-height: 100vh;
@@ -92,7 +92,7 @@
 
 .content-main {
    padding: var(--space-16) var(--space-10) var(--space-8);
-   max-width: 1000px;
+   max-width: 1100px;
 }
 
 .posts-header {

@@ -165,15 +165,16 @@ code {
 .inlinecode {
    font-family: var(--font-code);
    background: #1f2428;
-   color: #c9d1d9;
    border-radius: 3px;
    border: 1px;
-   margin: 1px;
-   font-size: var(--text-sm);
+   padding: 0 2px;
 }
 
 .highlight {
-   color: #f0c674;
+   border-radius: 3px;
+   border: 1px;
+   padding: 0 2px;
+   background: #f03374;
 }
 
 .code-block {
@@ -212,24 +213,4 @@ code {
    position: absolute;
    left: calc(-1 * var(--space-2));
    color: var(--text-faint);
-}
-
-.pattern-container {
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   z-index: 10;
-   pointer-events: none;
-   overflow: hidden;
-}
-
-#ridgelineCanvas {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   opacity: 0.3;
 }
