@@ -44,14 +44,14 @@
 }
 
 .blog-content h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-div,
-pre,
-p:not(.annotation) {
+.blog-content h2,
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6,
+.blog-content div,
+.blog-content pre,
+.blog-content p:not(.annotation) {
    grid-column: 1;
 }
 
@@ -77,11 +77,6 @@ p:not(.annotation) {
 .blog-content .warning {
    border-left: 2px solid #ff6b6b;
    font-weight: 500;
-}
-
-.blog-content p {
-   margin: var(--space-1), 0;
-   font-size: var(--text-base);
 }
 
 .blog-content a {
