@@ -28,9 +28,19 @@
                </div>
             </div>
             <main class="blog-content">
-               <p><br /></p>
+               <p>
+                  <br />
+                  <br />
+               </p>
                <h1>ai summary (claude4-sonnet-thinking)</h1>
                <p>
+                  this blogpost is a companion of my
+                  <a
+                     href="https://youtu.be/We63OxWJNZw?si=YjUOYFYJzgEPgWRS"
+                     target="_blank"
+                     >video on stoa</a
+                  >
+                  <br />
                   i'm documenting the starting point of my creative journey
                   after 5 years of depression and mental health struggles.
                   <br />
@@ -101,9 +111,9 @@
                   i'd like to record all i learn &amp; do through the journey
                </div>
                <p>
-                  my plan is to explore one little subject/project per 2~3
-                  weeks. i'd like to make a video &amp; a blogpost for every
-                  this little subject. <br />
+                  <br />my plan is to explore one little subject/project per
+                  2~3 weeks. i'd like to make a video &amp; a blogpost for
+                  every this little subject. <br />
                </p>
                <div class="sidenote annotation">
                   (un)fortunately, i find myself terrible at videos, and i've
@@ -292,7 +302,9 @@ define:
                <div class="list-1">
                   i won't use zig until it has a better documentation.
                </div>
-               <p>and stoac, the stoa compiler, is written in nim. <br /></p>
+               <p>
+                  <br />and stoac, the stoa compiler, is written in nim. <br />
+               </p>
                <div class="sidenote annotation">
                   i fail to figure out the reason of choosing nim. i suppose
                   it's just the intuition.
@@ -359,7 +371,7 @@ define:
                   calling it inside this while-loop.
                </div>
                <p>
-                  we forward to
+                  <br />we forward to
                   <span class="inlinecode">parseLine</span> procedure: <br />
                </p>
                <div class="code-block">
@@ -431,7 +443,7 @@ proc getColumnKind(line: string): ColumnKind =
                   specific column kind.
                </div>
                <p>
-                  let's try to input
+                  <br />let's try to input
                   <span class="inlinecode">&amp;&amp; this is a heading</span>
                   into the fsm: <br />
                </p>
@@ -464,9 +476,10 @@ proc getColumnKind(line: string): ColumnKind =
                   <span class="inlinecode">heading</span>.
                </div>
                <p>
-                  we forward to <span class="inlinecode">parseColumn</span>,
-                  which is essentially a router to different specific parser
-                  combinators based on the cloumn kind. <br />
+                  <br />we forward to
+                  <span class="inlinecode">parseColumn</span>, which is
+                  essentially a router to different specific parser combinators
+                  based on the cloumn kind. <br />
                </p>
                <div class="code-block">
                   <pre><code>proc parseLine(lexer: var Lexer, res: var Res) =
@@ -531,7 +544,7 @@ proc parseContentWithContinuation(lexer: var Lexer, content: string) =
                   continuation condition holds.
                </div>
                <p>
-                  the next procedure is
+                  <br />the next procedure is
                   <span class="inlinecode">parseInlineElements</span>: <br />
                </p>
                <div class="code-block">
@@ -632,9 +645,9 @@ proc parseContentWithContinuation(lexer: var Lexer, content: string) =
                </div>
                <div class="list-1">i hope i can create something.</div>
                <p>
-                  if you are experiencing similar issues, i sincerely wish this
-                  blogpost, this blogsite can help you, and you can live a good
-                  life. <br />
+                  <br />if you are experiencing similar issues, i sincerely
+                  wish this blogpost, this blogsite can help you, and you can
+                  live a good life. <br />
                </p>
             </main>
             <div id="footnote1" class="footnote">

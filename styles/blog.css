@@ -58,7 +58,8 @@ p:not(.annotation) {
 .blog-content .sidenote {
    grid-column: 2;
    font-size: var(--text-sm);
-   padding-left: var(--space-2);
+   padding-left: var(--space-1);
+   margin-left: var(--space-1);
 }
 
 .blog-content .comment {
