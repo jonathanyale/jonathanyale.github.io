@@ -1,13 +1,12 @@
 .blog-header {
    background: var(--darkness);
-   border-bottom: 1px solid var(--border);
    padding: var(--space-4) 0 var(--space-3);
    text-align: center;
    position: relative;
 }
 
 .blog-title {
-   font-size: var(--text-2xl);
+   font-size: var(--text-4xl);
    font-family: var(--font-heading);
    margin: var(--space-12) 0 0 0;
    text-align: center;
@@ -33,20 +32,15 @@
 }
 
 .blog-content {
+   border-top: 1px solid var(--border);
+   border-bottom: 1px solid var(--border);
    max-width: 1100px;
    margin: 0 auto;
    display: grid;
-   grid-template-columns: 0.65fr 0.35fr;
-   gap: 0 3rem;
+   grid-template-columns: 0.69fr 0.31fr;
+   gap: 0 var(--space-1);
    align-items: start;
-   margin-top: 4rem;
-}
-
-.footnote {
-   max-width: 1100px;
-   margin: 0 auto;
-   font-size: var(--text-sm);
-   opacity: 0.8;
+   margin-top: var(--space-4);
 }
 
 .blog-content h1,
@@ -63,31 +57,25 @@ p:not(.annotation) {
 
 .blog-content .sidenote {
    grid-column: 2;
-   font-size: 0.9rem;
+   font-size: var(--text-sm);
+   padding-left: var(--space-2);
 }
 
 .blog-content .comment {
    border-left: 1px solid var(--border);
-   padding-left: var(--space-2);
    font-style: italic;
    opacity: 0.7;
-   font-size: 0.85rem;
 }
 
 .blog-content .annotation {
    border-left: 3px solid var(--text-faint);
-   padding-left: var(--space-2);
    background: rgba(255, 255, 255, 0.02);
    padding: var(--space-1) var(--space-2);
-   font-size: 0.85rem;
 }
 
 .blog-content .warning {
    border-left: 2px solid #ff6b6b;
-   padding-left: var(--space-2);
    font-weight: 500;
-   letter-spacing: 0.01em;
-   font-size: 0.85rem;
 }
 
 .blog-content p {
@@ -104,4 +92,11 @@ p:not(.annotation) {
 .blog-content a:hover {
    color: var(--accent);
    border-bottom-color: var(--accent);
+}
+
+.footnote {
+   max-width: 1100px;
+   margin: var(--space-4) auto;
+   font-size: var(--text-sm);
+   opacity: 0.8;
 }

@@ -10,7 +10,7 @@
       <meta name="tags" content="stoa, nim" />
       <meta name="published" content="july 27, sun" />
       <meta name="created" content="july 15, 2025" />
-      <meta name="updated" content="july 27, sun" />
+      <meta name="updated" content="august 08, sat" />
    </head>
    <body>
       <div>
@@ -29,6 +29,35 @@
             </div>
             <main class="blog-content">
                <p><br /></p>
+               <h1>ai summary (claude4-sonnet-thinking)</h1>
+               <p>
+                  i'm documenting the starting point of my creative journey
+                  after 5 years of depression and mental health struggles.
+                  <br />
+                  medicated for bipolar disorder and having become overly
+                  dependent on llms, i've lost much of my creativity and
+                  thinking ability. <br />
+                  i've decided to break this cycle by committing to create,
+                  learn, and document everything along the way. <br />
+                  to support this journey, i've built my own markup language
+                  called "stoa" - inspired by the philosophy of minimalism,
+                  editor independence, and strictness. <br />
+                  unlike complex languages like neorg, stoa can be learned in
+                  10 minutes with just 47 lines of grammar. <br />
+                  it's designed around two core concepts: columns and inlines,
+                  processed by a single-pass compiler written in nim. <br />
+                  the technical implementation uses finite state machines to
+                  parse different column types (headings, lists, sidenotes,
+                  etc.) and processes files line by line without building
+                  complex asts. <br />
+                  this reflects my broader philosophy of holy-minimalism and
+                  metaphysical elegance. <br />
+                  this post marks my commitment to abandon brooding and
+                  dependency, start creating meaningful work, and help my
+                  family live better. <br />
+                  i hope sharing this journey might help others facing similar
+                  struggles with mental health and creative paralysis. <br />
+               </p>
                <h1>the necessity to start</h1>
                <p>
                   5 years ago, i was obsessed with a service where 2 matched
@@ -63,7 +92,7 @@
                   it from the very beginning. <br />
                </p>
                <h1>what do i need to start</h1>
-               <p>so, let's clear our mind one more time.</p>
+               <p>so, let's clear our mind one more time. <br /></p>
                <div class="list-1">i want to create something</div>
                <div class="list-1">
                   i don't know what to create specifically for now
@@ -404,7 +433,7 @@ proc getColumnKind(line: string): ColumnKind =
                <p>
                   let's try to input
                   <span class="inlinecode">&amp;&amp; this is a heading</span>
-                  into the fsm:
+                  into the fsm: <br />
                </p>
                <div class="list-1">
                   the first transition key is
@@ -487,7 +516,7 @@ proc parseContentWithContinuation(lexer: var Lexer, content: string) =
                </div>
                <p>
                   <br />
-                  essentially, what it does is:
+                  essentially, what it does is: <br />
                </p>
                <div class="list-1">
                   matches the sidenote type (annotation, warning, comment) and
@@ -517,7 +546,7 @@ proc parseContentWithContinuation(lexer: var Lexer, content: string) =
                </div>
                <p>
                   <br />
-                  stoac parses inline elements character by character:
+                  stoac parses inline elements character by character: <br />
                </p>
                <div class="list-1">
                   if a markup delimiter is found, a markup parser (also a
@@ -579,7 +608,7 @@ proc parseContentWithContinuation(lexer: var Lexer, content: string) =
                <p>
                   <br />
                   to summarize, stoac’s translation pipeline is a strict,
-                  single-pass process:
+                  single-pass process: <br />
                </p>
                <div class="list-1">
                   detect column kind via finite state machine
