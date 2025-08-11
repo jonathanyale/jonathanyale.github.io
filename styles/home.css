@@ -11,13 +11,11 @@
    justify-content: space-between;
 }
 
-.profile-name {
-   font-family: var(--font-heading);
-   font-size: var(--text-xl);
-   font-weight: 100;
-   color: var(--accent);
+.logo-spin {
+   width: 100%;
    margin-bottom: var(--space-8);
-   letter-spacing: -0.02em;
+   margin-top: calc(-1 * var(--space-4));
+   transform: scale(1.4);
 }
 
 .sidebar-social {
