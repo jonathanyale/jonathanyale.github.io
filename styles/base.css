@@ -64,6 +64,7 @@
    --text-faint: #888888;
    --accent: #d0d0d0;
    --accent-dim: #a8a8a8;
+   --inlinecode: #1f3428;
    --highlight: #f03374;
 }
 
@@ -158,7 +159,7 @@ code {
 
 .inlinecode {
    font-family: var(--font-code);
-   background: #1f3428;
+   background: var(--inlinecode);
    border-radius: 3px;
    border: 1px;
    padding: 0 2px;
@@ -168,7 +169,7 @@ code {
    border-radius: 3px;
    border: 1px;
    padding: 0 2px;
-   background: #f03374;
+   background: var(--highlight);
 }
 
 .code-block {
